@@ -396,6 +396,21 @@ public class MainActivity extends Activity {
                 return format.format(ms);
             }
         }
+    
+        // Is of Format PixysOS-<device>-<version>-<buildtype>-<ziptype>-<date>-<time>(-<signed>)
+        // We only want to show the <version>-<buildtype>-<date>-<time> part in mCurrentVersion
+        private String beautifyVersion(String version) {
+            try {
+                String[] parts = version.split("-");
+                if (parts.length < 6) {
+                    return version;
+                }
+                return parts[2] + "-" + parts[3] + "-" + parts[4] + "-" + parts[5];
+            } catch (Exception e) {
+                // In case of any error, return the full version
+                return version;
+            }
+        }
 
         @Override
         public void update(@StateInt int state, Float progress,
@@ -500,7 +515,7 @@ public class MainActivity extends Activity {
                 mUpdateVersionTitle.setVisibility(hideVersion ? View.GONE : View.VISIBLE);
                 final boolean setVersionTitle = !hideVersion && !TextUtils.isEmpty(updateVersionTitle);
                 if (setVersionTitle) mUpdateVersionTitle.setText(updateVersionTitle);
-                mCurrentVersion.setText(mConfig.getFilenameBase());
+                mCurrentVersion.setText(beautifyVersion(mConfig.getFilenameBase()));
                 mZiptype.setText(mConfig.getZipType());
                 mLastChecked.setText(lastCheckedText);
                 mExtraText.setText(extraText);
