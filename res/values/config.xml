@@ -20,22 +20,22 @@
 	<string name="url_branch_name">fourteen</string>
 
 	<!-- URL base to fetch all builds. first %s is replaced by branch name later on by property_device -->
-	<string name="url_base_json" formatted="false">https://api.pixysos.com/ota/v2/%s/&s/</string>
+	<string name="test_url_base_json" formatted="false">https://raw.githubusercontent.com/Gabeldorsche/ota/%s/%s/</string>
 
 	<!--  URL base to fetch test builds. first %s is replaced by branch name later on by property_device -->
-	<string name="test_url_base_json" formatted="false">https://raw.githubusercontent.com/Gabeldorsche/ota/%s/%s/</string>
+	<string name="test_url_base_json" formatted="false">https://raw.githubusercontent.com/Gabeldorsche/ota-pvt/%s/%s/</string>
 
 	<!-- full update -->
 	<string name="full_update_base">%s.json</string>
 
 	<!-- incremental update -->
-	<string name="incremental_update_base">%s.json</string>
+	<string name="incremental_update_base">incremental_%s.json</string>
 
 	<!-- Whether device supports A/B performance flashing -->
-	<item name="support_ab_perf_mode" type="bool">false</item>
+	<item name="support_ab_perf_mode" type="bool">true</item>
 
 	<!-- Whether to use incremental updates by default -->
-	<item name="use_incremental_updates" type="bool">false</item>
+	<item name="use_incremental_updates" type="bool">true</item>
 
 	<!-- Applies to A-only devices only, should be overlayed from DT -->
 	<item name="use_twrp" type="bool">false</item>

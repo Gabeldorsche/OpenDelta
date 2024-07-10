@@ -21,7 +21,7 @@
 		android:key="category_flashing"
 		android:title="@string/category_flashing" >
 		<SwitchPreferenceCompat
-			android:defaultValue="false"
+			android:defaultValue="true"
 			android:key="pref_incremental_updates"
 			android:title="@string/pref_incremental_updates_title"
 			android:summary="@string/pref_incremental_updates_summary"
@@ -40,7 +40,7 @@
 			android:title="@string/ab_wake_lock_title"
 			android:summary="@string/ab_wake_lock_summary" />
 		<SwitchPreferenceCompat
-			android:defaultValue="false"
+			android:defaultValue="true"
 			android:key="ab_stream_flashing"
 			android:persistent="false"
 			android:title="@string/ab_stream_flashing_title"

@@ -176,7 +176,7 @@ public class Config {
     }
 
     public boolean getABStreamCurrent() {
-        return prefs.getBoolean(PREF_AB_STREAM_NAME, false);
+        return prefs.getBoolean(PREF_AB_STREAM_NAME, true);
     }
 
     public void setABStreamCurrent(boolean enable) {
@@ -263,7 +263,7 @@ public class Config {
     }
 
     public boolean isIncrementalUpdatesEnabled() {
-        return prefs.getBoolean(PREF_INCREMENTAL_UPDATES, false);
+        return prefs.getBoolean(PREF_INCREMENTAL_UPDATES, true);
     }
 
     public void setIncrementalUpdatesEnabled(boolean enable) {
