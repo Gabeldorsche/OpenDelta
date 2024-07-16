@@ -1382,11 +1382,12 @@ public class UpdateService extends Service implements OnSharedPreferenceChangeLi
                     }
                 } catch (Exception e) {
                     Logger.ex(e);
-                    if(mConfig.isIncrementalUpdatesEnabled()) {
-                        mConfig.setIncrementalUpdatesEnabled(false);                        
-                    }
-
-                    mState.update(State.ERROR_INCREMENTAL_UNAVAILABLE);
+		    if (mConfig.isIncrementalUpdatesEnabled()) {
+		        mConfig.setIncrementalUpdatesEnabled(false);
+			    mState.update(State.ERROR_INCREMENTAL_UNAVAILABLE);
+		    } else {
+			    mState.update(State.ERROR_UNOFFICIAL, mConfig.getVersion());
+		        }
                     return;
                 }
 
@@ -1422,9 +1423,9 @@ public class UpdateService extends Service implements OnSharedPreferenceChangeLi
                                     .split("-")[6]);
                             
                             final long curFileTime = Long.parseLong(currentVersionZip
-                                    .split("-")[7]);
+                                    .split("-")[7].replace(".zip", ""));
                             final long latestFileTime = Long.parseLong(latestBuild
-                                    .split("-")[7]);
+                                    .split("-")[7].replace(".zip", ""));
 
                             updateAvailable = latestFileDate > currFileDate;
                             // If dates are the same, check the time
