@@ -402,10 +402,10 @@ public class MainActivity extends Activity {
         private String beautifyVersion(String version) {
             try {
                 String[] parts = version.split("-");
-                if (parts.length < 6) {
+                if (parts.length < 7) {
                     return version;
                 }
-                return parts[2] + "-" + parts[3] + "-" + parts[4] + "-" + parts[5];
+                return parts[2] + "-" + parts[5] + "-" + parts[6] + "-" + parts[7];
             } catch (Exception e) {
                 // In case of any error, return the full version
                 return version;
